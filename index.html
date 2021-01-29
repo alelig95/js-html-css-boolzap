@@ -38,12 +38,9 @@
         </div>
 
         <div class="sidebar-d">
-          <div class="contacts">
             <ul>
-              <li> <img :src="element.avatar" alt="" v-for="element in contacts"> </li>
-              <span v-for="(element, index) in contacts">{{element.name}}</span> 
+              <li> <img :src="element.avatar" alt="" v-for="element in contacts"> <span v-for="(element, index) in contacts">{{element.name}}</span> </li>
             </ul>
-          </div>
         </div>
       </div>
       <div class="main fl">
@@ -57,7 +54,7 @@
               </div>
 
             </div>
-            <div class="wei">
+            <div class="main-box-icons">
               <i class="fas fa-search"></i>
               <i class="fas fa-paperclip"></i>
               <i class="fas fa-ellipsis-v"></i>
