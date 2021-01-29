@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
@@ -39,7 +41,7 @@
 
         <div class="sidebar-d">
             <ul>
-              <li> <img :src="element.avatar" alt="" v-for="element in contacts"> <span v-for="(element, index) in contacts">{{element.name}}</span> </li>
+              <li v-for="element in contacts"> <img :src="element.avatar" alt="" > <span>{{element.name}}</span> </li>
             </ul>
         </div>
       </div>

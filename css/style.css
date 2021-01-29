@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+body{
+  font-family: 'Lato', sans-serif;
+}
+
 .clearfix::after{
   content: "";
   display: table;
@@ -70,6 +74,17 @@ img{
   font-size: 20px;
 }
 
+.notifications p{
+  text-decoration: underline;
+  color: grey;
+  margin-top: 1px;
+  font-size: 14px;
+}
+
+.notifications span{
+  font-size: 15px;
+}
+
 .sidebar-c{
   height: 50px;
   display: flex;
@@ -88,12 +103,15 @@ img{
 
 .sidebar-d{
   height: calc(100% - 205px);
+  margin-top: 5px;
 }
 
 .sidebar-d img{
   margin-bottom: 20px;
   margin-left: 20px;
   height: 55px;
+  vertical-align: top;
+  padding-right: 15px;
 }
 
 ul{
@@ -102,7 +120,7 @@ ul{
 
 i{
   font-size: 25px;
-  color: grey;
+  color: #ccc;
 }
 .main{
   height: 100%;
@@ -117,6 +135,11 @@ i{
   display: inline-block;
   vertical-align: middle;
   margin-left: 11px;
+}
+
+.name-and-access span{
+  color: grey;
+  font-size: 14px;
 }
 
 .current-chat{
