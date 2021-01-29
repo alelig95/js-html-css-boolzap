@@ -36,6 +36,15 @@
           <i class="fas fa-search"></i>
           <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
         </div>
+
+        <div class="sidebar-d">
+          <div class="contacts">
+            <ul>
+              <li> <img :src="element.avatar" alt="" v-for="element in contacts"> </li>
+              <span v-for="(element, index) in contacts">{{element.name}}</span> 
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="main fl">
         <div class="main-top">
