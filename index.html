@@ -41,7 +41,7 @@
 
         <div class="sidebar-d">
             <ul>
-              <li v-for="element in contacts"> <img :src="element.avatar" alt="" > <span>{{element.name}}</span> </li>
+              <li v-for="(element, index) in contacts" @click="selectedChat(index)"> <img :src="element.avatar" alt="" > <span>{{element.name}}</span> </li>
             </ul>
         </div>
       </div>
@@ -49,9 +49,9 @@
         <div class="main-top">
           <div class="current-chat">
             <div class="current">
-              <img src="img/avatar_1.jpg" alt="">
+              <img :src="contacts[activeIndex].avatar" alt="">
               <div class="name-and-access">
-                <p>Michele</p>
+                <p>{{contacts[activeIndex].name}}</p>
                 <span>Ultimo accesso alle ore</span>
               </div>
 
@@ -63,12 +63,15 @@
             </div>
           </div>
         <div class="main-middle">
+          <div class="message-container">
+            <div v-for="element in contacts[activeIndex].messages" :class="element.status">{{element.text}}</div>
+          </div>
 
         </div>
-        </div>
+      </div>
         <div class="main-bottom">
           <i class="far fa-smile"></i>
-          <input class="message" type="text" name="" value="" placeholder="Scrivi un messaggio">
+          <input class="message" @keyup.enter="sendMessage" v-model="myMessage" type="text" name="" value="" placeholder="Scrivi un messaggio">
           <i class="fas fa-microphone"></i>
         </div>
       </div>

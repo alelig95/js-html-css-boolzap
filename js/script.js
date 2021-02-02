@@ -1,6 +1,8 @@
 new Vue({
   el: '#root',
   data: {
+    activeIndex: 0,
+    myMessage: '',
     contacts: [
     {
         name: 'Michele',
@@ -88,5 +90,13 @@ new Vue({
 ]
 
   },
+ methods: {
+   selectedChat: function (index) {
+     this.activeIndex = index;
+   },
+   sendMessage: function () {
+    
+   }
+ },
  });
 Vue.config.devtools = true;

@@ -158,6 +158,7 @@ i{
 .main-middle{
   background-image: url("../img/mine.jpg");
   height: calc(100% - 72px);
+  position: relative;
 }
 
 .main-bottom {
@@ -177,4 +178,32 @@ i{
   height: 50px;
   border: 2px solid black;
   padding: 15px;
+}
+
+.sent{
+  background-color: #dcf8c6;
+  position: relative;
+  top: 100px;
+  left: 480px;
+  width: 300px;
+  height: 60px;
+  border: 1px solid #ccc;
+  padding: 11px;
+  color: #031c4e;
+  border-radius: 8px;
+  display: block;
+}
+
+.received{
+  background-color: #fff;
+  position: relative;
+  top: 130px;
+  left: 20px;
+  width: 300px;
+  height: 60px;
+  border: 1px solid #ccc;
+  padding: 11px;
+  color: #031c4e;
+  border-radius: 8px;
+  display: block;
 }
