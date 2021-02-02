@@ -93,9 +93,25 @@ new Vue({
  methods: {
    selectedChat: function (index) {
      this.activeIndex = index;
+     console.log(this.activeIndex)
    },
    sendMessage: function () {
-    
+    let activeContact = this.contacts[this.activeIndex];
+    console.log(activeContact)
+    activeContact.messages.push(  {
+          date: '10/01/2020 15:50:00',
+          text: this.myMessage,
+          status: 'sent'
+      });
+      this.myMessage = '';
+
+    setTimeout(function() {
+      activeContact.messages.push({
+        date: '10/01/2020 15:50:00',
+        text: 'ok',
+        status: 'received'
+      });
+    }, 1000)
    }
  },
  });

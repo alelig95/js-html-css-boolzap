@@ -158,7 +158,7 @@ i{
 .main-middle{
   background-image: url("../img/mine.jpg");
   height: calc(100% - 72px);
-  position: relative;
+  overflow-y: auto;
 }
 
 .main-bottom {
@@ -182,28 +182,28 @@ i{
 
 .sent{
   background-color: #dcf8c6;
-  position: relative;
-  top: 100px;
-  left: 480px;
-  width: 300px;
-  height: 60px;
+  clear: both;
+  float: right;
+  max-width: 50%;
   border: 1px solid #ccc;
   padding: 11px;
   color: #031c4e;
   border-radius: 8px;
   display: block;
+  margin-top: 2px;
+  margin-right: 50px;
 }
 
 .received{
   background-color: #fff;
-  position: relative;
-  top: 130px;
-  left: 20px;
-  width: 300px;
-  height: 60px;
+  clear: both;
+  float: left;
+  max-width: 50%;
   border: 1px solid #ccc;
   padding: 11px;
   color: #031c4e;
   border-radius: 8px;
   display: block;
+  margin-top: 2px;
+  margin-left: 50px;
 }
