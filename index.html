@@ -41,7 +41,10 @@
 
         <div class="sidebar-d">
             <ul>
-              <li v-for="(element, index) in contacts" @click="selectedChat(index)"> <img :src="element.avatar" alt="" > <span>{{element.name}}</span> </li>
+              <li v-for="(element, index) in contacts" @click="selectedChat(index)">
+                <img :src="'./img/avatar' + element.avatar + '.jpg'" alt="" >
+                <span>{{element.name}}</span>
+              </li>
             </ul>
         </div>
       </div>
@@ -49,10 +52,10 @@
         <div class="main-top">
           <div class="current-chat">
             <div class="current">
-              <img :src="contacts[activeIndex].avatar" alt="">
+              <img :src="'./img/avatar' + contacts[activeIndex].avatar + '.jpg'" alt="">
               <div class="name-and-access">
                 <p>{{contacts[activeIndex].name}}</p>
-                <span>Ultimo accesso alle ore</span>
+                <span>Ultimo accesso: {{ contactLastSeen(activeIndex) }} </span>
               </div>
 
             </div>
