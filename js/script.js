@@ -122,13 +122,16 @@ new Vue({
     return lastSeen;
   },
   // Creo un metodo per far funzionare la barra di ricerca nella sidebar:
-  search: function (name) {
+  search: function () {
     let contactNameSearch = this.inputSearch;
-    if (name.toLowerCase().includes(contactNameSearch)) {
-      return name.toLowerCase().includes(contactNameSearch)
-    }
+    this.contacts.forEach((item) => {
+      if (item.name.toLowerCase().includes(contactNameSearch)) {
+       item.visible = true;
+     } else {
+       item.visible = false;
+     }
+   });
   }
  }
-
- });
+});
 Vue.config.devtools = true;
