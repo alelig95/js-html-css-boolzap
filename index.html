@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-    <title>WhatsApp web</title>
+    <title>Boolzap web</title>
   </head>
   <body>
 
+    <!-- Inizio container -->
     <div id="root" class="container clearfix">
+      <!-- Inizio sidebar -->
       <div class="sidebar fl">
         <div class="sidebar-a">
-          <div class="username">
+          <div class="my-name">
             <img class="profile-img" src="img/avatar_io.jpg" alt="">
             <span>Alessandro</span>
           </div>
@@ -36,22 +38,24 @@
         </div>
         <div class="sidebar-c">
           <i class="fas fa-search"></i>
-          <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+          <input type="text" v-model="inputSearch" name="" value="" placeholder="Cerca o inizia una nuova chat">
         </div>
 
         <div class="sidebar-d">
-            <ul>
-              <li v-for="(element, index) in contacts" @click="selectedChat(index)">
-                <img :src="'./img/avatar' + element.avatar + '.jpg'" alt="" >
-                <span>{{element.name}}</span>
-              </li>
-            </ul>
+          <ul>
+            <li v-for="(element, index) in contacts" v-if="search(element.name)" @click="selectedChat(index)">
+              <img :src="'./img/avatar' + element.avatar + '.jpg'" alt="" >
+              <span>{{element.name}}</span>
+            </li>
+          </ul>
         </div>
       </div>
+      <!-- /sidebar -->
+      <!-- Inizio main -->
       <div class="main fl">
         <div class="main-top">
-          <div class="current-chat">
-            <div class="current">
+          <div class="active-chat">
+            <div class="active-chat-left">
               <img :src="'./img/avatar' + contacts[activeIndex].avatar + '.jpg'" alt="">
               <div class="name-and-access">
                 <p>{{contacts[activeIndex].name}}</p>
@@ -59,28 +63,29 @@
               </div>
 
             </div>
-            <div class="main-box-icons">
+            <div class="active-chat-right">
               <i class="fas fa-search"></i>
               <i class="fas fa-paperclip"></i>
               <i class="fas fa-ellipsis-v"></i>
             </div>
           </div>
-        <div class="main-middle">
-          <div class="message-container">
-            <div v-for="element in contacts[activeIndex].messages" :class="element.status">{{element.text}}</div>
-          </div>
+          <div class="main-middle">
+            <div class="message-container">
+              <div v-for="element in contacts[activeIndex].messages" :class="element.status">{{element.text}}</div>
+            </div>
 
+          </div>
         </div>
-      </div>
         <div class="main-bottom">
           <i class="far fa-smile"></i>
-          <input class="message" @keyup.enter="sendMessage" v-model="myMessage" type="text" name="" value="" placeholder="Scrivi un messaggio">
+          <input class="my-message" @keyup.enter="sendMessage" v-model="myMessage" type="text" name="" value="" placeholder="Scrivi un messaggio">
           <i class="fas fa-microphone"></i>
         </div>
       </div>
-
+      <!-- /main -->
     </div>
-
+    <!-- /container -->
+    
     <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>

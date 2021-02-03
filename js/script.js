@@ -3,6 +3,7 @@ new Vue({
   data: {
     activeIndex: 0,
     myMessage: '',
+    inputSearch: '',
     contacts: [
     {
         name: 'Michele',
@@ -91,10 +92,12 @@ new Vue({
 
   },
  methods: {
+   // Creo un metodo per cambiare la finestra della chat:
    selectedChat: function (index) {
      this.activeIndex = index;
      console.log(this.activeIndex)
    },
+   // Creo un metodo per inviare un messaggio dall'input premendo 'Invio':
    sendMessage: function () {
     let activeContact = this.contacts[this.activeIndex];
     console.log(activeContact)
@@ -104,7 +107,7 @@ new Vue({
           status: 'sent'
       });
     this.myMessage = '';
-
+    // Genero la risposta automatica che arriverà dopo 1 secondo:
     setTimeout(function() {
       activeContact.messages.push({
         date: '10/01/2020 15:50:00',
@@ -113,13 +116,21 @@ new Vue({
       });
     }, 1000)
   },
+  // Vado a prendermi la data dell'ultimo messaggio per stampare l'ultimo accesso:
   contactLastSeen: function (index) {
     let messages = this.contacts[index].messages;
     let lastIndex = messages.length - 1;
     let lastSeen = messages[lastIndex].date;
     return lastSeen;
+  },
+  // Creo un metodo per far funzionare la barra di ricerca nella sidebar:
+  search: function (name) {
+    let contactNameSearch = this.inputSearch;
+    if (name.toLowerCase().startsWith(contactNameSearch)) {
+      return name.toLowerCase().startsWith(contactNameSearch)
+    }
   }
- },
+ }
 
  });
 Vue.config.devtools = true;
