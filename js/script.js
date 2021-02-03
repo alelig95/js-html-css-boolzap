@@ -95,12 +95,10 @@ new Vue({
    // Creo un metodo per cambiare la finestra della chat:
    selectedChat: function (index) {
      this.activeIndex = index;
-     console.log(this.activeIndex)
    },
    // Creo un metodo per inviare un messaggio dall'input premendo 'Invio':
    sendMessage: function () {
     let activeContact = this.contacts[this.activeIndex];
-    console.log(activeContact)
     activeContact.messages.push(  {
           date: '10/01/2020 15:50:00',
           text: this.myMessage,
@@ -126,8 +124,8 @@ new Vue({
   // Creo un metodo per far funzionare la barra di ricerca nella sidebar:
   search: function (name) {
     let contactNameSearch = this.inputSearch;
-    if (name.toLowerCase().startsWith(contactNameSearch)) {
-      return name.toLowerCase().startsWith(contactNameSearch)
+    if (name.toLowerCase().includes(contactNameSearch)) {
+      return name.toLowerCase().includes(contactNameSearch)
     }
   }
  }
